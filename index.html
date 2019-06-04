@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyen tap vong lap 02</title>
+</head>
+<body>
+<input type="button" id="btap1" value="Bai Tap 1" onclick="btap1();"/><br/>
+<input type="button" id="btap2" value="Bai Tap 2" onclick="btap2();"/><br/>
+<input type="button" id="btap3" value="Bai Tap 3" onclick="btap3();"/><br/>
+<input type="button" id="btap4" value="Bai Tap 4" onclick="btap4();"/><br/>
+<input type="button" id="btap5" value="Bai Tap 5" onclick="btap5();"/><br/>
+<input type="button" id="btap6" value="Bai Tap 6" onclick="btap6();"/><br/>
+
+
+
+
+<p align="center">Nhập đoạn text muốn tạo vào đây<br>
+
+    <input id="text" name="text" size="37"></p>
+
+<p align="center"><input name="Create Heart" accesskey="g" onclick=
+
+        "return createHeart('text', 'result');" value="Tạo trái tim"
+
+                         type="button"></p>
+
+<p align="center">Copy hình vừa tạo và dán vào blog hoặc
+
+    nơi nào tuỳ bạn.</p>
+
+<p align="center">
+
+<textarea cols="45" rows="23" readonly="readonly" wrap="OFF" id=
+
+        "result" onclick="this.focus(); this.select();">
+
+</textarea></p>
+
+
+
+
+<script>
+    function btap1() {
+        let a = 0 , b = 1 , temp = 0 ;
+        let mess = '';
+        let n = parseInt(prompt('Nhap so luong can hien thi cua day Finonaci : ', '0'));
+        for (i=0;i<n;i++){
+            temp = a
+            a = a + b;
+            b = temp;
+            mess = mess + temp + ' , ';
+        }
+        mess = mess + '...';
+        alert(mess);
+    }
+
+    function btap2() {
+        let n = parseInt(prompt('nhap so nguyen duong can tinh giai thua : ' , '1'));
+        let temp = 1;
+
+        for (i=1;i<=n;i++){
+            temp = temp*i;
+        }
+        alert('Giai thua cua so nguyen '+n+' la : '+temp);
+    }
+
+    function btap3() {
+        let hienthi = '*';
+        let hienthi2 ;
+
+        for (i=0;i<5;i++){
+
+            document.write(hienthi+'<br>');
+            hienthi = hienthi + '*';
+        }
+
+        for (i=5;i>0;i--){
+            hienthi2 = hienthi.replace("*"," ");
+            hienthi = hienthi2;
+            document.write(hienthi2 + '<br>');
+        }
+    }
+    
+    function btap4() {
+        let sout;
+        sout = "<table>";
+        for (i = 1; i <= 7; i++) {
+            sout = sout + "<tr>";
+            for (j = 1; j <= 22; j++) {
+                if (i>1 && i <7 && j > 1 && j<22){
+                    sout = sout + "<td></td>";
+                }else{
+                    sout = sout + "<td>*</td>";
+                }
+            }
+            sout = sout + "</tr>";
+        }
+        sout = sout + "</table>";
+        document.write(sout);
+    }
+    
+    function btap5() {
+        let soTienGui = parseInt(prompt('Nhap so tien gui : '));
+        let soThangGui = parseInt(prompt('Nhap so thang gui : '));
+        let soLaiSuat = parseFloat(prompt('Nhap lai suat hang thang : '));
+
+        let a;
+        let b;
+
+        for (i=0;i<soThangGui;i++){
+            a = soTienGui / 100 * soLaiSuat;
+            b = soTienGui + a;
+            document.write(' sau '+(i+1)+' thang ban co : '+ b + '<br>' );
+            soTienGui = b;
+        }
+    }
+
+
+
+
+    //-----------------------------------------------------------------------
+
+
+    function createHeart(sourceId, resultId) {
+
+        objSource = window.document.getElementById(sourceId);
+
+        objResult = window.document.getElementById(resultId);
+
+
+
+        if(objSource.value.length == 0) {
+
+            alert("Bạn chưa nhập đoạn text cần tạo hình trái tim vào ô trống!");
+
+            return false;
+
+        }
+
+
+
+        string = objSource.value;
+
+
+
+        heart = "";
+
+        heart += "         " + partString(string, 8) + "            " + partString(string, 9) + "\n";
+
+        heart += "      " + partString(string, 12) + "       " + partString(string, 15) + "\n";
+
+        heart += "    " + partString(string, 17) + "   " + partString(string, 18) + "\n";
+
+        heart += "   " + partString(string, 41) + "\n";
+
+        heart += "  " + partString(string, 44) + "\n";
+
+        heart += " " + partString(string, 46) + "\n";
+
+        heart += " " + partString(string, 46) + "\n";
+
+        heart += partString(string, 47) + "\n";
+
+        heart += partString(string, 47) + "\n";
+
+        heart += partString(string, 46) + "\n";
+
+        heart += partString(string, 45) + "\n";
+
+        heart += " " + partString(string, 43) + "\n";
+
+        heart += "  " + partString(string, 41) + "\n";
+
+        heart += "    " + partString(string, 38) + "\n";
+
+        heart += "      " + partString(string, 34) + "\n";
+
+        heart += "         " + partString(string, 28) + "\n";
+
+        heart += "            " + partString(string, 22) + "\n";
+
+        heart += "              " + partString(string, 18) + "\n";
+
+        heart += "                 " + partString(string, 13) + "\n";
+
+        heart += "                   " + partString(string, 9) + "\n";
+
+        heart += "                     " + partString(string, 6) + "\n";
+
+        heart += "                      " + partString(string, 4) + "\n";
+
+        heart += "                       " + partString(string, 2) + "\n";
+
+
+
+        objResult.value = heart;
+
+    }
+
+    function partString(string, num) {
+
+        if(string.length >= num)
+
+            return string.substring(0, num);
+
+
+
+        repeat = Math.ceil(num / string.length);
+
+
+
+        newString = "";
+
+
+
+        for(i = 0; i < repeat; i++)
+
+            newString += string;
+
+
+
+        return newString.substring(0, num);
+
+    }
+
+
+</script>
+</body>
+</html>
